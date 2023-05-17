@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 export type PropsType = {
-    on: boolean
-    onChange: (value: boolean) => void;
+    onChange: (on: boolean) => void;
 }
 
 
 
-export const OnOff: React.FC<PropsType> = (props) => {
-    const {on, onChange} = props
+export const UncontrolledOnOff: React.FC<PropsType> = (props) => {
+    const {onChange} = props
+
+    let [on, setOn] = useState(false)
     const onStyle = {
         width: '30px',
         height: '20px',
@@ -37,10 +38,19 @@ export const OnOff: React.FC<PropsType> = (props) => {
         backgroundColor: on ? 'green' : 'red'
     };
 
+    const onClicked = () => {
+        setOn(true)
+        onChange(true)
+    }
+    const offClicked = () => {
+        setOn(false)
+        onChange(false)
+    }
+
     return (
         <div>
-           <div style={onStyle} onClick={()=> {onChange(true)}}>On</div>
-           <div style={offStyle} onClick={()=> {onChange(false)}}>Off</div>
+           <div style={onStyle} onClick={onClicked}>On</div>
+           <div style={offStyle} onClick={offClicked}>Off</div>
            <div style={indicatorStyle}></div>
         </div>
     );
