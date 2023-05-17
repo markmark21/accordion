@@ -28,7 +28,7 @@ type AccordionTitlePropsType = {
 const AccordionTitle: React.FC<AccordionTitlePropsType> =(props) => {
     const {onChange, title} = props
     return <div>
-        <h3 onClick={onChange}>{title}</h3>
+        <h3 style={{cursor: 'pointer'}} onClick={(e) => onChange()}>{title}</h3>
     </div>;
 
 
