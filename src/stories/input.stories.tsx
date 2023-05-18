@@ -58,6 +58,4 @@ export const ControlledSelect = () => {
         <option value="2">Moscow</option>
         <option value="3">Kiev</option>
     </select>
-
-
 }
