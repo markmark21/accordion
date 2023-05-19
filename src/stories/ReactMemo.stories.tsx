@@ -16,17 +16,27 @@ const UsersSecret = (props: { users: string[] }) => {
     }</div>;
 };
 
-const Users = React.memo(UsersSecret)
+const Users = React.memo(UsersSecret);
 
 export const Example1 = () => {
-    const [counter, setCounter] = useState(0)
-    const [users, setUsers] = useState(["Mark", "Valera", "Artem"])
+    const [counter, setCounter] = useState(0);
+    const [users, setUsers] = useState(["Mark", "Valera", "Artem"]);
+    const addUser = () => {
+        const newUsers = [...users, 'Sveta' + new Date().getTime()]
+        setUsers(newUsers)
+    }
+
     return (
         <div>
-            <button onClick={()=> {setCounter(counter + 1)}}>+</button>
+            <button onClick={() => {
+                setCounter(counter + 1);
+            }}>+
+            </button>
+            <button onClick={addUser}>add user
+            </button>
             <NewMessagesCounter count={counter}/>
             <Users users={users}/>
         </div>
-    )
+    );
 
 };
