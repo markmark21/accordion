@@ -26,11 +26,12 @@ type StarPropsType = {
     setValue: () => void
 }
 
-function Star(props: StarPropsType) {
+export const Star: React.FC<StarPropsType> = (props) => {
+    const {selected, setValue} = props
     console.log("Star rendering");
     return <span onClick={() => {
-        props.setValue();
+        setValue();
     }}>
-        {props.selected ? <b>start </b> : " star"}
+        {selected ? <b>start </b> : " star"}
     </span>;
 }
