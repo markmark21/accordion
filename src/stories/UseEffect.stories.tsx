@@ -39,24 +39,17 @@ export const SetTimeoutExample = () => {
 
     useEffect(() => {
         console.log('useEffect every render');
-        document.title = counter.toString()
-    })
-
-    useEffect(() => {
-        console.log('useEffect only 1st render');
-        document.title = counter.toString()
+        setInterval(() => {
+            setCounter((state) => state + 1)
+        }, 1000)
     }, [])
 
-    useEffect(() => {
-        console.log('useEffect 1st render and every counter change');
-        document.title = counter.toString()
-    }, [counter])
 
 
 
     return <>
-        Hello, {counter} {fake}
-        <button onClick={() => {setCounter(counter + 1)}}>counter+</button>
-        <button onClick={() => {setFake(fake + 1)}}>fake+</button>
+        Hello, counter: {counter} - fake: {fake}
+        {/*<button onClick={() => {setCounter(counter + 1)}}>counter+</button>
+        <button onClick={() => {setFake(fake + 1)}}>fake+</button>*/}
     </>
 }
