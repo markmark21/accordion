@@ -1,25 +1,29 @@
 import React, {useEffect, useState} from "react";
+import {clearInterval} from "timers";
 
-type PropsType = {
-
-}
+type PropsType = {}
+const get0String = (num: number) => num < 10 ? `${0}` + num : num;
 
 export const Clock: React.FC<PropsType> = (props) => {
-    const {} = props
+    const {} = props;
 
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(new Date());
 
     useEffect(() => {
-        setInterval(() => {setDate(new Date())}, 1000)
-    }, [])
+        const intervalId = setInterval(() => {
+            setDate(new Date());
+        }, 1000);
 
-    const secondsString = date.getSeconds() < 10 ? `${0}` + date.getSeconds() : date.getSeconds()
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
 
     return <div>
-        <span>{date.getHours()}</span>
+        <span>{get0String(date.getHours())}</span>
         :
-        <span>{date.getMinutes()}</span>
+        <span>{get0String(date.getMinutes())}</span>
         :
-        <span>{secondsString}</span>
-    </div>
-}
+        <span>{get0String(date.getSeconds())}</span>
+    </div>;
+};
