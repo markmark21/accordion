@@ -4,6 +4,7 @@ import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRa
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import Accordion from "./components/Accordion/Accordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {Clock} from "./components/Clock/Clock";
 
 function App() {
     console.log('App rendering')
@@ -24,7 +25,8 @@ function App() {
 
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
 
-            <Accordion titleValue={'Menu'} collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
+            {/*<Accordion titleValue={'Menu'} collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>*/}
+            <Clock/>
         </div>
     );
 }

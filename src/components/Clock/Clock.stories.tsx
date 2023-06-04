@@ -1,12 +1,11 @@
 import React from "react";
+import {Clock} from "./Clock";
 
 export default {
-    title: 'Clock stories'
+    title: 'Clock'
 }
-export const Clock = () => {
-    return <div>
-
-    </div>
+export const BaseExample = () => {
+    return <Clock/>
 }
 
 
